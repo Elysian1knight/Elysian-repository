@@ -1,0 +1,24 @@
+# dsh-salon 的配置。复制成 cordis.patch.yml 再改成你自己的：
+#
+#   cp cordis.patch.example.yml cordis.patch.yml
+#
+# 只留一条顶层 - insert:（宿主只认第一条，写第二条会被静默吞掉）。
+
+- insert:
+    - id: salon-room
+      name: dsh-salon
+      config:
+        mode: room
+        port: 40765
+
+        # 账本、名单、附件落在哪。不写就落在插件自己的 state/ 下。
+        # stateDir: <插件目录>/state
+
+        # 屋主在界面上的默认名字。不写就是「屋主」。
+        # owner: 你的名字
+
+        # 只让这些工作区里的会话进店（绝对路径）。整段不写＝不按工作区筛，
+        # 但仍然排除已归档的会话与子代理。只让某几间进店时再列：
+        # workspaces:
+        #   - D:/work/project-a
+        #   - D:/work/project-b
