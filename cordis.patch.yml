@@ -1,0 +1,21 @@
+# dsh-salon 的默认配置。
+# 这个文件由 DSH 在加载插件时读取（package.json 的 dsh.bundle.patch 指向它）。
+# 改端口/限制工作区就改这里；不想让某些会话被叫进来，见下面 workspaces 的注释。
+
+- insert:
+    - id: salon-room
+      name: dsh-salon
+      config:
+        mode: room
+        port: 40765
+
+        # 账本、附件、日志、昵称存在哪。默认是插件自己旁边的 state/，一般不用写。
+        # stateDir: <插件目录>/state
+
+        # 屋主显示成什么。默认就是「屋主」，装好以后也可以在面板的设置窗里改。
+        # owner: 屋主
+
+        # 只让这些工作区里的会话被叫进来（留空＝所有工作区的会话都能叫，归档与子代理仍然排除）。
+        # workspaces:
+        #   - <一个工作区目录，比如你的项目文件夹>
+        #   - <另一个工作区目录>
