@@ -47,6 +47,17 @@ DSH 改这些接口时，它可能一起坏。写的时候（2026-11）对着这
 
 ## 装
 
+### 从 npm 装（推荐）
+
+```
+dsh plugin add dsh-salon
+```
+
+装完重启 DSH。仓库里带着一份默认的 `cordis.patch.yml`（只有 `mode: room` 和 `port: 40765`），
+不用改就能跑；要改端口或限定工作区再动它。
+
+### 从源码装（改代码、或者还没发版时）
+
 DSH 的 profile 目录一般是 `<DSH_HOME>/profiles/desktop`（Windows 上通常在 `%USERPROFILE%\.dsh`）。
 下面把插件放在 `<插件目录>`，也就是你克隆下来的这个文件夹。
 
@@ -60,11 +71,8 @@ mklink /J "<DSH_HOME>\profiles\desktop\node_modules\dsh-salon" "<插件目录>"
 ln -s "<插件目录>" "<DSH_HOME>/profiles/desktop/node_modules/dsh-salon"
 ```
 
-2. 复制一份配置，改成你自己的（`cordis.patch.yml` 不进仓库，里面有你的名字与账本位置）：
-
-```
-cp cordis.patch.example.yml cordis.patch.yml
-```
+2. 配置：仓库里的 `cordis.patch.yml` 就是默认配置，直接用；想留一份自己的，复制
+`cordis.patch.example.yml` 改名 `cordis.local.yml`，或者直接改 `cordis.patch.yml`（改完别提交）。
 
 只写死一样必要的东西就够：`port`（默认 40765）。其余留空有默认值——账落在插件自己的 `state/`，
 屋主名字叫「屋主」，工作区不筛（但已归档的会话与子代理永远不会进店）。
@@ -78,6 +86,7 @@ cp cordis.patch.example.yml cordis.patch.yml
 ```
 
 4. 重启 DSH。
+
 
 ## 用法
 
